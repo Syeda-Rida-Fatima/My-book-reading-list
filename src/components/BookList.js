@@ -1,10 +1,15 @@
-import React from 'react';
+import BookShow from './BookShow';
 
-function BookList(props) {
+function BookList({ books }) {
+
+    const rerenderdBook = books.map((book) => {
+        return <BookShow key={books.id} book={books} />;
+    });
     return (
-        <div>
-
+        <div className='book-list'>
+            {rerenderdBook}
         </div>
+
     );
 }
 
