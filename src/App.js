@@ -5,7 +5,14 @@ import BookCreate from './components/BookCreate';
 
 function App() {
 
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
+
+  const deleteById = (id) => {
+    const updatedBooks = books.filter((book) => {
+      return book.id != id;
+    });
+    setBooks(updatedBooks);
+  };
   const createBook = (title) => {
     const updatedBooks = [
       ...books, {
@@ -16,7 +23,7 @@ function App() {
   }
   return (
     <div>
-      <BookList books={books} />
+      <BookList books={books} onDelete={deleteById} />
       <BookCreate onCreate={createBook} />
     </div>
   );
