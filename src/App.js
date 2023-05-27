@@ -20,7 +20,8 @@ function App() {
         title,
       },
     ];
-  }
+    setBooks(updatedBooks);
+  };
   return (
     <div>
       <BookList books={books} onDelete={deleteById} />
